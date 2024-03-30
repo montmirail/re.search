@@ -9,7 +9,7 @@ export const search = async (path: string, options: any, o: any) => {
     ({ title }) => `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`,
   );
 
-  const browser = Browsers.get(options.browser);
+  const browser = options.browser ? Browsers.get(options.browser) : Browsers.get('brave');
 
   browser.search(searchHrefs.join(' '));
 };

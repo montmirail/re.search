@@ -2,12 +2,7 @@
 
 ## Commands
 
-### Plan
-Will proceed to a dry run.
+### Search
 ```
-npm run start -- plan rules.csv
-```
-### Apply
-```
-npm run start -- apply rules.csv
+npm run start -- search file.csv -- --browser firefox
 ```
