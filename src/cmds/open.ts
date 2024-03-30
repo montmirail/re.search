@@ -1,16 +1,15 @@
-import { exec } from 'child_process';
-import { Browser } from '../browsers';
+import { Browsers } from '../browsers';
 
 import { readCsv } from '../read-csv';
 
-export const search = async (path: string) => {
+export const search = async (path: string, options: any, o: any) => {
   const links = await readCsv(path);
 
   const searchHrefs = links.map(
     ({ title }) => `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`,
   );
 
-  console.log(Browser.list());
+  const browser = Browsers.get(options.browser);
 
-  exec(`brave ${searchHrefs.join(' ')} --new-window`);
+  browser.search(searchHrefs.join(' '));
 };

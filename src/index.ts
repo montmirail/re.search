@@ -1,6 +1,8 @@
-import { program } from 'commander';
+import { Command } from 'commander';
 import { search } from './cmds/open';
 
-program.command('search').argument('<string>').action(search);
+const program = new Command();
+
+program.command('search').argument('<string>').option('-b, --browser <string>').action(search);
 
 program.parse();
